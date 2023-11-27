@@ -1,4 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpRequest
+from django.http import HttpResponse
 def index(req):
-    return HttpRequest("Hi form yacht app⛵!!")
+    return render(req,"index.html")
