@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap');
+
+.hero{
+    background-image: url('landingBg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.img1{
+    width: 300px;
+    height: 330px;
+}
+.img2{
+    border: 8px solid white;
+    width: 162px;
+    transform: translateY(168px) translateX(-50px);
+}
+.img3{
+    border: 8px solid white;
+    width: 114px;
+    height: 105px;
+    transform: translateY(-30px) translateX(-50px);
+}
+.aboutT {
+    font-family: Montserrat;
+    font-size: 30px;
+    color: #147E97;
+}
+.aboutP {
+    color: #bfa888;
+}
+
+
+.d{
+    height:80vh;
+
+
+}
