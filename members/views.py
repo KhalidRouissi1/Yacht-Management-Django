@@ -22,6 +22,7 @@ class CustomUserCreationForm(UserCreationForm):
             self.fields[field_name].widget.attrs.update({
                 'class': 'block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500'
             })
+
 ############################################################
 
 
@@ -40,6 +41,7 @@ def login_user(req):
         return render(req, 'auth/login.html', {})
 
 
+
 def register_user(req):
     if req.method == "POST":
         form = CustomUserCreationForm(req.POST)
@@ -47,11 +49,9 @@ def register_user(req):
             user = form.save()
             login(req, user)
             return redirect('/')
-        else:
-            print(req.POST)
     else:
-        form = CustomUserCreationForm()
-
+        form = CustomUserCreationForm()  
+        print(form.errors)
     return render(req, 'auth/register.html', {'form': form})
 
 @login_required
