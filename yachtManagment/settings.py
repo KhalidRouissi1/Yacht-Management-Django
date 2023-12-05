@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-3&3t5qdfzp1!vvxu$sr-fgp_fdl^$yk_w6%2p4&6+89%d*6)i=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -140,3 +139,4 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ALLOWED_HOSTS = ['*']
