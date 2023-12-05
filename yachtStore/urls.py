@@ -5,8 +5,11 @@ from . import views
 
 urlpatterns = [
     path('',views.index,name="index"),
-    path('buy',views.shOwYachts,name="buy"),
-    path('add',views.shOwYachts,name="add"),
-    path('edit',views.editYacht,name="edit"),
+    path('addyacht',views.add,name="add"),
+    path('edit/<int:id>',views.editYacht,name="edit"),
+    path('buy/<int:yid>',views.getById,name='getById'),
+    path('buy',views.show,name='buy'),
+    path('delete/<int:id>',views.delete,name='delete'),
+
     
 ]

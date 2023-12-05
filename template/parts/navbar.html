@@ -1,13 +1,15 @@
 {% load static %}
 
-<nav class="container mx-auto p-7">
-    <div class="flex item-center justify-between">
+<nav class="container mx-auto p-10 w-full" style="background-color:#025B70;">
+    <div class="flex items-center justify-between">
         <div>
-            <img src="{% static 'img/OceanElit.png' %}" alt="img" width="100px">
+            <a href="/">
+                <img src="{% static 'img/OceanElit.png' %}" alt="img" width="100px">
+            </a>
         </div>
         <div class="hidden md:flex space-x-6 mx-5 sm:mx-5">
             <a style="color:#f8f4f1" href="/">Home</a>
-            <a class="" style="color:#f8f4f1 " href="/about">About</a>
+            <a class="" style="color:#f8f4f1 " href="#about">About</a>
             <a class="" style="color:#f8f4f1" href="/buy">Buy</a>
             <a class="" style="color:#f8f4f1" href="/chat">Chat</a>
             <a style="color:#f8f4f1" href="/contact">Contact</a>

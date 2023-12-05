@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include '../parts/navbar.html' %}
+
+<div class="container mx-auto p-5">
+    <!-- Search Bar -->
+    <div class="mb-8">
+        <label for="search" class="text-lg font-semibold">Search Yachts:</label>
+        <input type="text" id="search" class="p-2 w-full border border-gray-300 rounded-md" placeholder="Type yacht name...">
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="yachtContainer">
+        {% for yakht in data %}
+            <div class="max-w-sm rounded overflow-hidden shadow-lg yacht-card">
+                <img src="{{ yakht.yachtPhoto.url }}" alt="{{ yakht.title }}" class="w-full h-64 object-cover">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">{{ yakht.title }}</div>
+                    <p class="text-gray-700 text-base">{{ yakht.description }}</p>
+                </div>
+                <div class="px-6 py-4 d-flex space-x-36">
+                    <span class="text-xl font-semibold">{{ yakht.price }}</span>
+                    <span class="text-xl font-semibold">
+                        <a href="buy/{{ yakht.id }}">Read More</a>
+                        {% if request.user.is_staff %}
+                        <a href="delete/{{yakht.id}}" class="bg-purple-700 my-96 hover:bg-purple-600 text-white font-bold py-1 px-4 rounded">Delete</a>
+                        <a href="edit/{{yakht.id}}" class="bg-purple-700  hover:bg-purple-600 text-white font-bold py-1 px-4 rounded">Edit</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- No Yacht Found Message -->
+    <div id="noYachtMessage" class="mt-8 text-red-500 hidden">No yacht found with this name.</div>
+</div>
+
+{% include '../parts/footer.html' %}
+
+<script>
+    // Add JavaScript to handle search input
+    const searchInput = document.getElementById('search');
+    const yachtContainer = document.getElementById('yachtContainer');
+    const yachtCards = document.querySelectorAll('.yacht-card');
+    const noYachtMessage = document.getElementById('noYachtMessage');
+
+    searchInput.addEventListener('input', function () {
+        const searchValue = this.value.toLowerCase();
+        let foundYacht = false;
+
+        yachtCards.forEach(card => {
+            const yachtTitle = card.querySelector('.font-bold').textContent.toLowerCase();
+            const isMatching = yachtTitle.includes(searchValue);
+            card.style.display = isMatching ? 'block' : 'none';
+            foundYacht = foundYacht || isMatching;
+        });
+
+        noYachtMessage.style.display = foundYacht ? 'none' : 'block';
+    });
+</script>
+
+{% endblock %}
