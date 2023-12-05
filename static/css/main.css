@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap');
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities'
-/* .img1{
+
+.hero{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+}
+@media (min-width:776px) {
+    .hero{
+        height: 100vh;
+    }
+}
+.img1{
     width: 300px;
     height: 330px;
 }
@@ -16,15 +25,15 @@
     width: 114px;
     height: 105px;
     transform: translateY(-30px) translateX(-50px);
-} */
-/* .aboutT {
+}
+.aboutT {
     font-family: Montserrat;
     font-size: 30px;
     color: #147E97;
-} */
-/* .aboutP {
+}
+.aboutP {
     color: #bfa888;
-} */
+}
 
 
 .d{

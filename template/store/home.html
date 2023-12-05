@@ -8,21 +8,40 @@
 {% include '../parts/navbar.html' %}
        
 
-    <section id="hero "> 
+    <section id="hero " class="my-52"> 
         <div class="contaier mx-auto px-12 py-6 space-x-6 flex flex-col-reverse md:flex-row">
         <div class="md:w-1/2  space-y-8 py-12 text-center md:text-left">
             <h1 class="font-bold text-3xl md:text-6xl text-white text-center" style="color: #ECD9C8;">Yakhting</h1>
             <p class="text-lg md:text-2xl  text-white">
                 Take a moment to immerse yourself, however briefly, in our world of yachting. Superyacht videos capture the ambiance of each yacht, the energy of each crew and the spirit of each destination. If you can't be there yourself, this is the next best thing. Enjoy!
            </p>
-            <div class="text-center">
+            <div class="text-center"  >
                 <a href="" class="py-2 px-5  rounded-full self-center md:self-start  text-white  " style="background-color: #025B70;"> About </a>
             </div>
         </div>
     </div>
     </section>
 </div>
-{% include './aboutPage.html' %}
-{% include './rent.html' %} 
-{% include './footer.html' %}
+{% include './about.html' %}
+
+<div  class="contaier w-full mx-auto px-12 py-6 space-x-20 flex flex-col-reverse justify-items-center items-center md:flex-row-reverse h-screen"  >
+    <div class="w-1/2 flex p-32 ">
+        <img src={% static 'img/part-2.jpg' %} alt="img1" class="img1" >
+    </div>
+    <div class="md:w-1/2  space-y-8 py-12 text-center flex flex-col  md:text-left" id="rent">
+        <h1 class="aboutT text-center ">Rent</h1>
+        <p class="aboutP text-center text-3xl">
+            100$/hour
+            By renting a yacht, you will get vivid impressions of a first-class vacation, see beautiful views of the embankments and an unforgettable starry sky.</p>
+            <div class="flex justify-center">
+                <a href="" class="py-2 px-20  rounded-lg  md:self-start  text-white " style="background-color: #bfa888;"> Rent </a>
+            </div>
+    </div>
+
+
+    
+    </div>
+    {% include '../parts/footer.html' %}
+
+
 {% endblock %}

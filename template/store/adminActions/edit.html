@@ -1,80 +1,54 @@
-{% load static %}
-<script src="https://cdn.tailwindcss.com"></script>
+{% extends 'base.html' %}
 
-<link rel="stylesheet" href={% static 'css/styles.css' %}>
-<div class="flex items-center justify-center p-12">
-    <!-- Author: FormBold Team -->
-    <!-- Learn More: https://formbold.com -->
-    <div class="mx-auto w-full max-w-[550px]">
-      <form action="/yakht" method="POST">
-        {% csrf_token %}
-        <div class="mb-5">
-          <label
-            for=" Title"
-            class="mb-3 block text-base font-medium text-[#07074D]"
-          >
-            Title
-          </label>
-          <input
-            type="text"
-            name=" Title"
-            id=" Title"
-            placeholder="Full Name"
-            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-          />
+{% block content %}
+{% load static %}
+
+<div class="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
+    <!-- Login component -->
+    <div class="flex shadow-md">
+        <!-- Login form -->
+        <div class="flex flex-wrap content-center justify-center rounded-l-md bg-white" style="width: 32rem; height: 36rem;">
+            <div class="w-96">
+                <!-- Heading -->
+                <h1 class="text-xl font-semibold">Welcome Admin</h1>
+                <small class="text-gray-400">Add/Edit a yacht!</small>
+
+                <!-- Form -->
+                <form class="mt-4" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="title" class="block text-sm font-medium text-gray-600">Title</label>
+                        <input type="text" id="title" name="title" value="{{ Yakht.title }}" class="mt-1 p-2 w-full border rounded-md">
+                    </div>
+                    <div class="mb-4">
+                        <label for="price" class="block text-sm font-medium text-gray-600">Price</label>
+                        <input type="text" id="price" name="price" value="{{ Yakht.price }}" class="mt-1 p-2 w-full border rounded-md">
+                    </div>
+                    <div class="mb-4">
+                        <label for="description" class="block text-sm font-medium text-gray-600">Description</label>
+                        <textarea id="description" name="description" rows="3" class="mt-1 p-2 w-full border rounded-md">{{ Yakht.description }}</textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="image" class="block text-sm font-medium text-gray-600">Image</label>
+                        <input type="file" id="image" name="image" class="mt-1 p-2 w-full border rounded-md">
+                    </div>
+                    <button type="submit" class="block w-full text-center text-white bg-purple-700 hover:bg-purple-900 px-2 py-1.5 rounded-md">
+                        Save Changes
+                    </button>
+                </form>
+
+                <!-- Footer -->
+                <div class="text-center mt-4">
+                    <a href="/" class="text-xs font-semibold text-purple-700">Go home</a>
+                </div>
+            </div>
         </div>
-        <div class="mb-5">
-          <label
-            for="price"
-            class="mb-3 block text-base font-medium text-[#07074D]"
-          >
-            price
-          </label>
-          <input
-            type="text"
-            name="price"
-            id="price"
-            placeholder="example@domain.com"
-            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-          />
+
+        <!-- Login banner -->
+        <div class="flex flex-wrap content-center justify-center rounded-r-md" style="width: 32rem; height: 36rem;">
+            <img class="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md"
+                 src="{% if Yakht.yachtPhoto %}{{ Yakht.yachtPhoto.url }}{% else %}https://cdn.discordapp.com/attachments/1138848747665768499/1181557209423949905/addPhoto.jpg?ex=65817de6&is=656f08e6&hm=5c20b5043f4f26ebb89ea7401e113c1f396d5c19d6f698065c50fc81a690ff48&{% endif %}" alt="Yacht Image">
         </div>
-        <div class="mb-5">
-          <label
-            for="photo"
-            class="mb-3 block text-base font-medium text-[#07074D]"
-          >
-            photo
-          </label>
-          <input
-            type="file"
-            name="photo"
-            id="photo"
-            placeholder="Enter your subject"
-            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-          />
-        </div>
-        <div class="mb-5">
-          <label
-            for="description"
-            class="mb-3 block text-base font-medium text-[#07074D]"
-          >
-            description
-          </label>
-          <textarea
-            rows="4"
-            name="description"
-            id="description"
-            placeholder="Type your message"
-            class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-          ></textarea>
-        </div>
-        <div>
-          <button
-            class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
     </div>
-  </div>
+</div>
+{% endblock content %}

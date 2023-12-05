@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="container mx-auto p-5">
+    <div class="relative rounded overflow-hidden shadow-lg">
+        <img src="{{ Yakht.yachtPhoto.url }}" class="w-full h-96 object-cover" alt="img">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-white text-center">
+                <h2 class="text-lg font-bold">{{ Yakht.title }}</h2>
+                <span class="block mt-2 " >{{ Yakht.price }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 text-center">
+        <p>{{ Yakht.description }}</p>
+    </div>
+</div>
+{% endblock %}

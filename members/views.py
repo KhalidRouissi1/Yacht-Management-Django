@@ -17,7 +17,7 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # Apply Tailwind CSS classes to fields
+        
         for field_name in ['username', 'email', 'password1', 'password2']:
             self.fields[field_name].widget.attrs.update({
                 'class': 'block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500'
@@ -40,8 +40,6 @@ def login_user(req):
     else:
         return render(req, 'auth/login.html', {})
 
-
-
 def register_user(req):
     if req.method == "POST":
         form = CustomUserCreationForm(req.POST)
@@ -49,9 +47,11 @@ def register_user(req):
             user = form.save()
             login(req, user)
             return redirect('/')
+        else:
+            # If the form is not valid, render the registration page with the form errors
+            return render(req, 'auth/register.html', {'form': form})
     else:
-        form = CustomUserCreationForm()  
-        print(form.errors)
+        form = CustomUserCreationForm()
     return render(req, 'auth/register.html', {'form': form})
 
 @login_required
