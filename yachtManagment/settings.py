@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'yachtStore',
         'USER': 'postgres',
-        'PASSWORD': 'root',
+        'PASSWORD': 'dorra',
         'HOST': 'localhost',   
         'PORT': '5432',        
     }
@@ -122,6 +122,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
