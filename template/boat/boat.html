@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+body {
+  margin: 200px;
+}
+
+.cont {
+  transform-style: preserve-3d;
+  perspective: 9000px;
+  position: relative;
+  transform: rotateX(20deg);
+  width: 282.84px; /* calculated value for $d */
+  height: 282.84px; /* calculated value for $d */
+  animation: rot 8s infinite linear;
+}
+
+[class*='triangle-'] {
+  position: absolute;
+  bottom: 0;
+}
+
+.triangle-1 {
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 141.42px; /* calculated value for $base/2 */
+  border-bottom-color: rgba(200, 200, 200, 0.5);
+  border-bottom-width: 141.42px; /* calculated value for $height */
+  transform-origin: 50% 100%;
+  transform: rotateX(-33deg);
+}
+
+/* ... (repeat similar modifications for other triangles) */
+
+@keyframes rot {
+  from {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+}
+
+.bow {
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: rotateZ(40deg);
+  transform-origin: 100% 100%;
+}
+
+.stern {
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 0;
+  transform: rotateZ(-40deg);
+  transform-origin: 100% 100%;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="cont">
+    <div class="triangle-1"></div>
+    <div class="triangle-2"></div>
+    <div class="triangle-3"></div>
+    <div class="bow">
+      <div class="triangle-4"></div>
+      <div class="triangle-5"></div>
+    </div>
+    <div class="stern">
+      <div class="triangle-6"></div>
+      <div class="triangle-7"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% load static %}
+
+<nav class="container mx-auto">
+    <div class="flex item-center justify-between">
+        <div>
+            <img src="{% static 'img/OceanElit.png' %}" alt="img" width="50px">
+        </div>
+        <div class="hidden md:flex space-x-6 mx-5 sm:mx-5">
+            <a style="color:#f8f4f1" href="/">Home</a>
+            <a class="" style="color:#f8f4f1" href="/about">About</a>
+            <a class="" style="color:#f8f4f1" href="/buy">Buy</a>
+            <a class="" style="color:#f8f4f1" href="/chat">Chat</a>
+            <a style="color:#f8f4f1" href="/contact">Contact</a>
+
+            {% if is_authenticated %}
+            <a style="color:#f8f4f1" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a style="color:#f8f4f1" href="members">Login</a>
+            {% endif %}
+        </div>
+        <button id="mobile-btn" class="md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        </button>
+    </div>
+    <div class="md:hidden my-5">
+        <div id="mobile-menu" class="absolute flex hidden flex-col items-center space-y-4 font-bold bg-gray-600 left-6 right-6 drop-shadow-lg border border-gray-300">
+            <a style="color:#f8f4f1" href="/">Home</a>
+            <a class="" style="color:#f8f4f1" href="/about">About</a>
+            <a class="" style="color:#f8f4f1" href="/buy">Buy</a>
+            <a class="" style="color:#f8f4f1" href="/chat">Chat</a>
+            <a style="color:#f8f4f1" href="/contact">Contact</a>
+            {% if is_authenticated %}
+            <a style="color:#f8f4f1" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a style="color:#f8f4f1" href="members">Login</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Assuming you have a button with the id "mobile-btn" and a menu with the id "mobile-menu"
+    const mobileBtn = document.getElementById('mobile-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
