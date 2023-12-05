@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="hero" style="background-image:url('{% static "img/landingBg.jpg" %}')" >
+{% include '../parts/navbar.html' %}
+       
+
+    <section id="hero"> 
+        <div class="contaier mx-auto px-12 py-6 space-x-6 flex flex-col-reverse md:flex-row">
+        <div class="md:w-1/2  space-y-8 py-12 text-center md:text-left">
+            <h1 class="font-bold text-3xl md:text-5xl text-white">Lorem </h1>
+            <p class="text-4xl  ">
+                Take a moment to immerse yourself, however briefly, in our world of yachting. Superyacht videos capture the ambiance of each yacht, the energy of each crew and the spirit of each destination. If you can't be there yourself, this is the next best thing. Enjoy!
+           </p>
+            <div>
+                <a href="" class="py-2 px-5  rounded-full self-center md:self-start  text-white " style="background-color: #025B70;"> About </a>
+            </div>
+        </div>
+    </div>
+    </section>
+</div>
+<div class="contaier mx-auto px-12 py-6 space-x-6 flex flex-col-reverse md:flex-row" >
+    <div class="w-1/2 flex ">
+        <img src={% static 'img/part-2.jpg' %} alt="img1" class="img1" >
+        <div class="flex flex-col subParts">
+            <img src={% static 'img/part-2.jpg' %} alt="img2" class="img2" >
+            <img src={% static 'img/part-2.jpg' %} alt="img2" class="img3" >
+        </div>
+    </div>
+    <div class="md:w-1/2  space-y-8 py-12 text-center md:text-left" >
+        <h1 class="aboutT text-center ">About Us</h1>
+        <p class="aboutP">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga nam aut ducimus totam, alias architecto ullam modi iure corrupti ratione, praesentium inventore sit in corporis delectus eos laudantium porro sint aspernatur minus minima quia, ipsam deleniti molestias. Ex cupiditate repudiandae, unde repellendus labore aspernatur quibusdam expedita atque nulla temporibus numquam!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem mollitia possimus maxime, voluptatum eveniet minima pariatur adipisci modi, quam esse placeat praesentium, consequatur iusto. Itaque repudiandae in quisquam a porro!</p>
+    </div>
+</div>
+
+
+<div class="contaier w-full mx-auto px-12 py-6 space-x-20 flex flex-col-reverse  md:flex-row" >
+    <div class="md:w-1/2  space-y-8 py-12 text-center flex flex-col  md:text-left" >
+        <h1 class="aboutT text-center ">Rent</h1>
+        <p class="aboutP text-center">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga nam aut ducimus totam, alias architecto ullam modi iure corrupti ratione, praesentium inventore sit in corporis delectus eos laudantium porro sint aspernatur minus minima quia, ipsam deleniti molestias. Ex cupiditate repudiandae, unde repellendus labore aspernatur quibusdam expedita atque nulla temporibus numquam!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem mollitia possimus maxime, voluptatum 
+            eveniet minima pariatur adipisci modi, quam esse placeat praesentium, consequatur iusto. Itaque repudiandae in quisquam a porro!</p>
+            <div class="flex justify-center">
+                <a href="" class="py-2 px-20  rounded-lg  md:self-start  text-white " style="background-color: #bfa888;"> Rent </a>
+            </div>
+    </div>
+    <div class="w-1/2 flex ">
+        <img src={% static 'img/part-2.jpg' %} alt="img1" class="img1" >
+    </div>
+    
+    </div>
+
+{% endblock %}
