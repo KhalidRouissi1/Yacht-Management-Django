@@ -17,9 +17,11 @@
                 <form class="mt-4" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}  {# This line will render all form fields as paragraphs #}
-                    <button type="submit"
+                    <button type="submit" 
                             class="mb-1.5 block w-full text-center text-white bg-purple-700 hover:bg-purple-900 px-2 py-1.5 rounded-md">
+                       <a href="buy">
                         Add yacht!
+                       </a>
                     </button>
                 </form>
 

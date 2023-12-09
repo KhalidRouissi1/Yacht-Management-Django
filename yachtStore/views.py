@@ -17,21 +17,6 @@ def index(req):
 
 
 
-def add(request):
-    if request.method == "POST":
-        form = YakhtForm(request.POST)
-        if form.is_valid():
-            yakht = Yacht(
-                description=form.cleaned_data['description'],
-                title=form.cleaned_data['title'],
-                image=form.cleaned_data[' image'],
-                price =form.cleaned_data['price']
-            )
-            yakht.save()
-            return redirect('/show')
-    else:
-        form = YakhtForm()
-    return render(request, 'addpage.html', {'yakhtf': form})
 
 
 @staff_member_required
@@ -63,7 +48,7 @@ def add(request):
             # You may want to set additional fields or perform additional logic here before saving
 
             yakht.save()
-            return redirect('/show')  # Adjust the redirect URL as needed
+            return redirect('buy')  # Adjust the redirect URL as needed
     else:
         form = YakhtForm()
 

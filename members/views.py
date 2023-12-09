@@ -26,19 +26,20 @@ class CustomUserCreationForm(UserCreationForm):
 ############################################################
 
 
-def login_user(req):
-    if req.method == "POST":
-        username = req.POST['username']
-        password = req.POST['password']
-        user = authenticate(request=req, username=username, password=password)
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request=request, username=username, password=password)
         if user is not None:
-            login(req, user)
+            login(request, user)
             return redirect('/')
         else:
-            messages.error(req, 'There is an error in login try again buddy.')
-            return render(req, 'auth/login.html')
+            # Use the messages framework to display a login error message
+            messages.error(request, 'Invalid login credentials. Please try again.')
+            return render(request, 'auth/login.html')
     else:
-        return render(req, 'auth/login.html', {})
+        return render(request, 'auth/login.html', {})
 
 def register_user(req):
     if req.method == "POST":

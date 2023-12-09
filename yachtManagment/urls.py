@@ -9,5 +9,7 @@ urlpatterns = [
     path('', include("yachtStore.urls")),
     path('members/', include("django.contrib.auth.urls")),
     path('members/', include("members.urls")),
+    path('members/', include("members.urls")),
+    path('api/', include("api.urls")),
 
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
