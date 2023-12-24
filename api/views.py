@@ -13,7 +13,6 @@ from drf_yasg import openapi
 def getData(request):
     serializer = YachtSerializer(Yacht.objects.all(), many=True)
     return Response(serializer.data)
-
 @swagger_auto_schema(
     method='post',
     request_body=openapi.Schema(
@@ -23,9 +22,9 @@ def getData(request):
             'title': openapi.Schema(type=openapi.TYPE_STRING),
             'description': openapi.Schema(type=openapi.TYPE_STRING),
             'price': openapi.Schema(type=openapi.TYPE_STRING),
-            'yachtPhoto': openapi.Schema(type=openapi.TYPE_FILE),  
+            'yachtPhoto': openapi.Schema(type=openapi.TYPE_STRING, format='binary'),  
         },
-        required=['yachtPhoto']  
+        required=['yachtPhoto', 'price', 'description', 'title', 'yid']  
     )
 )
 @api_view(['POST'])

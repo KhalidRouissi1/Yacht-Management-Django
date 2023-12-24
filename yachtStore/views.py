@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, get_object_or_404,redirect
-from .forms import YakhtForm  # Import your form
+from .forms import YakhtForm  
 from .models import Yacht
 
 
@@ -12,7 +12,18 @@ def index(req):
 
 
 
+@staff_member_required
+def add(request):
+    if request.method == "POST":
+        form = YakhtForm(request.POST, request.FILES)  
+        if form.is_valid():
+            yakht = form.save(commit=False)
+            yakht.save()
+            return redirect('buy')  
+    else:
+        form = YakhtForm()
 
+    return render(request, 'store/adminActions/addpage.html', {'form': form})
 
 
 
@@ -39,20 +50,7 @@ def delete (request,id):
 
 
 
-@staff_member_required
-def add(request):
-    if request.method == "POST":
-        form = YakhtForm(request.POST, request.FILES)  # Note the use of request.FILES for handling image upload
-        if form.is_valid():
-            yakht = form.save(commit=False)
-            # You may want to set additional fields or perform additional logic here before saving
 
-            yakht.save()
-            return redirect('buy')  # Adjust the redirect URL as needed
-    else:
-        form = YakhtForm()
-
-    return render(request, 'store/adminActions/addpage.html', {'form': form})
 
 
 def getById(request,yid):
