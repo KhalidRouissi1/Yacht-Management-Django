@@ -9,7 +9,7 @@
         {
             "src": "build_files.sh",
             "use": "@vercel/static-build",
-            "config": {"disDir": "static"}
+            "config": {"disDir": "/"}
         }
     ],
     "routes": [
