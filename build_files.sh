@@ -1,4 +1,5 @@
 echo "BUILD START"
-python3.10 -m pip install requirmenets.txt
-python3.10 manage.py collectstatic --noinput --clear
+python3 --version  # Add this line to check the Python version
+python3 -m pip install -r requirements.txt
+python3 manage.py collectstatic --noinput --clear
 echo "BUILD END"
