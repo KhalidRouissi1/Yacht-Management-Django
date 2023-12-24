@@ -9,7 +9,7 @@
         {
             "src": "build_files.sh",
             "use": "@vercel/static-build",
-            "config": {"disDir": "yachtManagment"}
+            "config": {"distDir": "yachtManagment"}
         }
     ],
     "routes": [
