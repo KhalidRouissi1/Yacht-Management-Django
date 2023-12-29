@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3&3t5qdfzp1!vvxu$sr-fgp_fdl^$yk_w6%2p4&6+89%d*6)i='
+# SECRET_KEY = 'django-insecure-3&3t5qdfzp1!vvxu$sr-fgp_fdl^$yk_w6%2p4&6+89%d*6)i='
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-
+DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 
 # Application definition
 
@@ -86,22 +85,13 @@ WSGI_APPLICATION = 'yachtManagment.wsgi.application'
 #         'PORT': '5432',        
 #     }
 # }
-
-
-
+database_url = os.environ.get("DATABASE_URL")
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'yachtStore',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',   
-        'PORT': '5432',        
-    }
+    'default': dj_database_url.parse(database_url)
 }
 
 
-
+#postgres://yachtstore_user:pzu6FfpykxD1W0QErnMEJx2W3E7l9AJP@dpg-cm7hm9un7f5s73cdb1n0-a/yachtstore
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -155,4 +145,4 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
